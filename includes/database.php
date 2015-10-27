@@ -31,14 +31,14 @@ class MySQLDatabase {
 	}
 
 	public function query($sql) {
-		$result = mysql_query($sql, $this->connestion);
+		$result = mysql_query($sql, $this->connection);
 		$this->confirm_query($result);
 		return $result;
 	}
 
-	public function mysql_prep($value) {
+	public function escape_value($value) {
 		$magic_quotes_active = get_magic_quotes_gpc();
-		$new_enough_php = function_exists("mysql_real_escape_string";) // PHP >= v4.3.0
+		$new_enough_php = function_exists("mysql_real_escape_string"); // PHP >= v4.3.0
 		if ($new_enough_php) {
 			// undo any magic quote effects so mysql_real_escape_string can do the work
 			if ($magic_quotes_active) {
@@ -53,6 +53,23 @@ class MySQLDatabase {
 			// if magic quotes are active, then the slashes already exist
 		}
 		return $value;
+	}
+
+	public function fetch_array($result_set) {
+		return mysql_fetch_array($result_set);
+	}
+	
+	public function num_rows($result_set) {
+		return mysql_num_rows($result_set);
+	}
+
+	public function insert_id() {
+		// get the last id inserted over the current db connection
+		return mysql_insert_id($this->connection);
+	}
+
+	public function affected_rows() {
+		return msql_affected_rows($this->connection);
 	}
 
 	private function confirm_query($result) {
