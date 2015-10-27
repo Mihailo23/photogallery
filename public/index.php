@@ -13,6 +13,7 @@ $sql = "SELECT * FROM users WHERE id=1";
 $result_set = $database->query($sql);
 $found_user = $database->fetch_array($result_set);
 
+// $found_user = ...;
 echo $found_user['username'];
 
 ?>
