@@ -1,19 +1,16 @@
 <?php 
 require_once("../includes/database.php");
-if (isset($database)) {echo "true<br>";} else {echo "false<br>";}
+require_once("../includes/user.php");
 
-echo $database->escape_value("Radi li ovvoooo, a'ooooo???") . "<br>";
+$user = User::find_by_id(1);
+echo $user->full_name();
 
-// $sql = "INSERT INTO users (id, username, password, first_name, last_name) ";
-// $sql .= "VALUES (1, 'Mihailo23', 'Micagablade23', 'Mihailo', 'Pantovic')";
+echo "<hr>";
 
-// $result = $database->query($sql);
-
-$sql = "SELECT * FROM users WHERE id=1";
-$result_set = $database->query($sql);
-$found_user = $database->fetch_array($result_set);
-
-// $found_user = ...;
-echo $found_user['username'];
+$users = User::find_all();
+foreach ($users as $user) {
+	echo $user->username . "<br>";
+	echo $user->full_name() . "<br><br>";
+}
 
 ?>

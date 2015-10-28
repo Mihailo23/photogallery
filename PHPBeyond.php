@@ -258,7 +258,7 @@
 	$box == $box_clone;
 	$box == $another_box; // sve tacno, samo ako promenimo vrednost atributa, nece biti tacno
 
-	test
+	
 
 
 
