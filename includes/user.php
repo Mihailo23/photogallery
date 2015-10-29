@@ -1,6 +1,6 @@
 <?php 
 // If it's going to use the database, then it's probabaly smart to require it before we start
-require_once("database.php");
+require_once(LIB_PATH.DS."database.php");
 
 class User {
 	
@@ -28,6 +28,18 @@ class User {
 			$object_array[] = self::instantiate($row);
 		}
 		return $object_array;
+	}
+
+	public static function authenticate($username = "", $password = "") {
+		global $database;
+		$username = $database->escape_value($username);
+		$password = $database->escape_value($password);
+		$sql = "SELECT * FROM users ";
+		$sql .= "WHERE username = '{$username}' ";
+		$sql .= "AND password = '{$password}' ";
+		$sql .= "LIMIT 1";
+		$result_array = self::find_by_sql($sql);
+		return !empty($result_array) ? array_shift($result_array) : false;
 	}
 
 	public function full_name() {
