@@ -1,5 +1,6 @@
 <?php
 
+require_once("initialize.php");
 require_once(LIB_PATH.DS."config.php");
 
 class MySQLDatabase {

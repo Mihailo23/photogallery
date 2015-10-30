@@ -258,12 +258,40 @@
 	$box == $box_clone;
 	$box == $another_box; // sve tacno, samo ako promenimo vrednost atributa, nece biti tacno
 
-	
+	// RAD SA FAJLOVIMA
+
+	echo __FILE__ // daje nam putanju do trenutnog fajla
+	echo __LINE__ // daje nam liniju fajla koje trenutno gledamo, treba da pazimo na inkludovane fajlove, jer onda ovo ne mora da bude tacno
+	echo dirname(__FILE__) // direktorijum u kome je fajl
+	echo __DIR__ // ista stvar od PHP-a v5.3
+
+	file_exists(filename) // da li postoji fajl (moze i za dokument)
+
+	is_file(filename) // da li je fajl ili direktorijum
+
+	is_dir(filename) // da li je direktorijum
+
+	is_dir('..')
+
+	// PERMISIJE
+
+	// generalno treba davati sto manje permisija, tj. omoguciti samo one koje treba da stavimo da bismo uradili ono sto zelimo
+
+	// u sustini, postoje tri kategorije korisnika: user, group, other
+
+	// i tri pita akcija nad fajlom/folderom read(R), write(W), execute(X) (execute je islistavanje fajlova u direktorijumu, ili da pokrenemo fajl)
+
+	// i onda imamo dve vrste prikaza: simbolicki i oktalni(numericki)
+
+	// npr: rwxrw-r-- (- znaci ne moze ta operacija)
+
+	// u oktalnom sistemu r = 4, w = 2, x = 1, - = 0 (rwx = 7, rw = 6, r = 4, rx = 5 ...)
 
 
+	// who am I, who is the owner, who is the web server?
+	// often Nobody, or sometimes WWW, Apache
 
-
-
+	// chown i chmod (poznato)
 
 
 
