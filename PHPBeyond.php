@@ -1,4 +1,53 @@
 <?php 
+	// NULL and empty
+
+	// NULL znaci nista
+
+	is_null(); // za null vrednost daje true, za prazan string false, za nepostojecu vrednost daje true i izbacuje notice
+	isset(); // false za null, true za prazan string, false za nepostojecu vrednost
+
+	// null je nepostojanje vrednosti
+
+	// empty: "", null, 0, 0,0, "0", false, array()
+	// empty: "", null, 0, 0,0, "0", false, array()
+
+	// KASTOVANJE
+
+	// dva nacina
+	settype(var, type);
+	(integer) $var;
+
+	gettype(var);
+
+	string
+	int, integer
+	float
+	array
+	bool, boolean
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	$a = "hello";
 	$hello = "Hello svima!";
 	
