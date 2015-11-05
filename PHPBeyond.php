@@ -14,8 +14,8 @@
 	// KASTOVANJE
 
 	// dva nacina
-	settype(var, type);
-	(integer) $var;
+	settype(var, type); // menja tip varijable odmah
+	(integer) $var;		// mora da se dodeli novoj vrednosti da bi se promenio tip
 
 	gettype(var);
 
@@ -25,13 +25,55 @@
 	array
 	bool, boolean
 
+	continue; // kada se koristi u vise nivoa petlje, mozemo da stavimo broj pored continue(2), to znaci da se continue odnosi na stariju for petlju:
+
+	for ($i=0; $i < 5; $i++) { 
+		if ($i % 2 == 0) { continue; }
+		for ($k=0; $k < 5; $k++) { 
+			if ($k == 3) { continue(2); } // odlazi skroz do gornje petlje, prestaje da izvrsava ovu
+			echo $i . "-" . $k . "<br>";
+		}
+	}
+
+	break; // u for petlji predstavlja izlazak iz kompletne petlje
+
+	break(2); // ima isto opciju kao i continue
+
+	// POINTERI
+
+	$ages = array(); // neki niz
+
+	current($ages); // na koji trenutno pokazujemo
+	next($ages);	// prebaci pokazivac na sledeci
+	prev($ages);	// prebaci pokazivac na prethodni
+	reset($ages);	// vrati na prvi
+	end($ages);		// idi na poslednji, end pa next daje nista
 
 
+	// koriscenje
 
+	while ($age = current($ages)) { // dodeljivanje, nije poredjenje!!!
+		echo $age . ", ";
+		next($ages);
+	} // bitno zbog rada sa bazama
 
+	// kada imamo neku funkciju saberi_oduzmi() koja vraca niz sa, recimo, dve vrednosti, onda mozeom da ispisemo kao listu:
 
+	list($zbir, $razlika) = saberi_oduzmi(20, 10); // ovako smestimo te dve vrednosti koje ce nam napuniti niz koji se vraca u listu, i onda mozemo da ih prikazemo 
 
+	// DEBAGOVANJE
 
+	// korisna funkcija koju upisujemo unutar neke funkcije
+
+	var_dump(debug_backtrace());
+
+	// LINKS AND URL's
+
+	// postoje tri nacina na koje prikupljamo informacije od korisnika na internetu:
+
+	//Links and URL's 	GET request
+	//Forms 			POST request
+	//Cookies			COOKIE
 
 
 
