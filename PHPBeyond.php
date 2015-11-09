@@ -75,6 +75,21 @@
 	//Forms 			POST request
 	//Cookies			COOKIE
 
+	// GET
+
+	// super-globalna varijabla u kojoj se cuvaju podaci koje prosledimo preko url-a. Oni se smestaju u asocijativni niz iz kog mozemo da im pristupimo
+	// npr. google.com/search=1&page=2
+
+	$_GET['search']; // 1
+	$_GET['page']; // 2
+
+
+
+
+
+
+
+
 
 
 
