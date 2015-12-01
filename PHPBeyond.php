@@ -83,12 +83,56 @@
 	$_GET['search']; // 1
 	$_GET['page']; // 2
 
+	// KODIRANJE GET VREDNOSTI (ako imamo nezeljene karaktere kao npr. &)
 
+	// ima dosta karaktera koji su rezervisani u URL-u, zato moramo biti pazljivi !()@#$[]+%&*...
+	// njih zamenjujemo sa znakom procenta i parom heksadecimalnih cifara (npr. %26 je &)
 
+	urlencode($string); 	// rezervisani karakteri postaju % + 2 heksa cifre
+							// space postaje +
 
+	// koristi se samo za $_GET, ne i za $_POST i $_COOKIE jer tu nemamo smestanje vrednosti u URL
 
+	rawurlencode($string); 	// rezervisani karakteri postaju % + 2 heksa cifre
+							// space postaje %20 !!!!
 
+	// Koji koristiti???
 
+	// rawurlencode putanju pre ?
+	// - space-ovi moraju biti interpretirani kao %20
+
+	// urlencode query string posle ?
+	// - space-ove je bolje enkodirati kao "+"
+
+	// rawurlencode je generalno kompatibilniji !!!
+
+	// KODIRANJE HTML-a
+
+	// rezervisani karakteri < > & "
+
+	// htmlspecialchars(string) - enkodira 4 specijalna karaktera u &lt; &gt; &amp; &quot;
+	// htmlentities(string) - enkodira sve znakove koji imaju HTML ekvivalent
+
+	// INCLUDE, REQUIRE
+
+	// kad include-ujemo fajl, bitmoje da i on ima otvoren php tag
+
+	// HEDERI
+
+	// sluze za redirekcije
+
+	header(string);
+
+	// JAKO BITNO: oni se pojavljuju pre svog ostalog sadrzaja stranice !!!
+
+	// REDIREKCIJE
+
+	// jedan tip redirekcije je 302 redirekcija
+
+	// HTTP 1.1/ 302 Found
+	// Location: path // novi URL
+
+	header("Location: login.php"); // mora tacno ovako da izgleda Location: lokacija
 
 
 
