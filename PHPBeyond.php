@@ -230,6 +230,25 @@
 		echo "Validation failed!<br>";
 	}
 
+	// LAZNE POZITIVNE VREDNOSTI
+
+	// klip 069, ima ih brda...
+
+	empty(); // ""; 0; "0"; false, null, array() su svi empty, posebno je cudan "0"... (broj dece u formi)
+
+	// Mozemo da napravimo fajl za validacije
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
