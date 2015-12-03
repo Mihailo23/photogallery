@@ -135,6 +135,107 @@
 	header("Location: login.php"); // mora tacno ovako da izgleda Location: lokacija
 
 
+	// OUTPUT BUFFERING
+
+	// kao slavina (php kod) koja puni casu (web server) HTML-om, kad upadne prva kap, dobijamo hedere, kad se casa napuni server salje podatke browseru
+	// output buffer je kao posuda za merenje koja stalno salje istu "kolicinu" koda u casu, tako mozemo da editujemo hedere u toku "presipanja"
+	// mozemo da ga podesimo u php.ini ili za svaki fajl posebno (recimo 4096, to je dobar broj)
+
+	ob_start(); // pocetak (mora pre bilo kog sadrzaja, kao hederi)
+	ob_end_flush(); // kraj
+
+	// FORME!!!!
+
+	// POST zahtev
+	// kad submit-ujemo formu, ona moze da vodi na istu stranu ili na neku drugu, podaci iz forme se smestaju u $_POST kao acosijativni niz, koji ima key ono sto je nama name inputa, a value je vrednost tog polja.
+
+	echo $_POST['$key'];
+
+	// provera da li ima vrednosti u $_POST, tj. dali smo dosli preko forme na stranicu ili samo preko url-a
+	// boolean_test ? value_if_true : value_if_false
+	$username = (isset($_POST['username'])) ? $username : "" ;
+	// provera da li je forma poslata
+	if (isset($_POST['submit'])) {
+		// zbog ovoga submit input mora da ima name="submit"
+	}
+
+	// FORMA I PROCESUIRANJE NA ISTOJ STRANI
+
+	// dobro je ako imamo sve na istoj strani, i html i procesuiranje
+	// lako mozemo da opet prikazemo formu sa podacima koje smo uneli kako bi ih ispravili ako ima gresaka
+
+	// VALIDACIJA FORME
+	// postoje razne validacije i jako su bitne
+		// - validacija prisutnosti (da li je polje popunjeno)
+		// - validacija duzine (max i min)
+		// - tip (string, integer)
+		// - da li je u setu vrednosti (male, female)
+		// - jedinstvenost (username)
+		// - format (datum)
+		// - ...
+
+	// * prisutnost
+	$value = ""; // proslo bi samo isset
+	if (!isset($value) || empty($value)) {
+		echo "Validation failed!<br>";
+	}
+
+	// * duzina
+	// minimalna duzina
+	$value = "micamica"; // ne prolazi
+	$min = 3;
+	if (strlen($value) < $min) {
+		echo "Validation failed!<br>";
+	}
+	// maximalna duzina
+	$max = 5;
+	if (strlen($value) > $max) {
+		echo "Validation failed!<br>";
+	}
+
+	// * tip
+	$value = 1; // ne prolazi
+	// BITNO - kad citamo vrednosti iz forme, one su uvek stringovi i moramo da ih konvertujemo da bi bile u nekom drugom formatu
+	if (!is_string($value)) {
+		echo "Validation failed!<br>";
+	}
+
+	// * set vrednosti
+	$value = "5"; // ne prolazi 
+	$set = array("1", "2", "3", "4");
+	if (!in_array($value, $set)) {
+		echo "Validation failed!<br>";
+	}
+
+	// * jedinstvenost
+
+	// treba nam baza
+
+	// * format
+	// koristimo regex nad stringom
+	// preg_match(pattern, subject)
+	if (preg_match("/PHP/", "PHP iz fun")) {
+		echo "A match was found"; // tacno
+	} else {
+		echo "A match was not found";
+	}
+
+	$value = "nobody@nowhere.com";
+	if (!preg_match("/@/", $value)) {
+		echo "Validation failed!<br>";
+	}
+
+	// umesto toga moze i ovo
+	if (strpos("@", $value) === false) { // mora === jer ako bi bilo == i @ na prvom mestu, tj. poziciju 0, to bi bilo tacno
+		echo "Validation failed!<br>";
+	}
+
+
+
+
+
+
+
 
 
 
