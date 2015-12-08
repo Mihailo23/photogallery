@@ -238,6 +238,125 @@
 
 	// Mozemo da napravimo fajl za validacije
 
+	// treba je da napravimo validacije koje nama odgovaraju, poenta je da shvatimo kako stvari teku: korisnik unese podatke, mi ih malo ocistimo, odradimo validacije, ako prodju radimo jednu radnju, ako ne, radimo neku drugu
+
+	// COOKIES
+
+	// Cookies su mali delovi podataka koje web server trazi od naseg browsera da ih sacuva, bitni su jer daju web developerima mogucnost da sacuvaju "stanje" korisnika, da zapamte ko je i sta je radio. Bez kukija web serveri ne mogu da prepoznaju kad vise poziva dolazi od istog korisnika. Bitno je da se cuvaju podaci iz BROWSERA, jer je tako najbolje, bolje nego IP (vise korisnika moze da deli istu IP adresu), ili isti korisnik moze da promeni IP ardesu (lik koji putuje i koristi mobilni)
+	// Cookie se salje prilikom odgovora web server na zahtev korisnika kao jedan red u hederima
+
+	// HTTP/1.1 200 OK
+	// Content-type: text/html
+	// Set-Cookie: admin_id=502
+
+	// Tada browser sacuvava cookie na lokalnom kompjuteru i kad browser napravi novi request ka web serveru on mu salje sve cookie u request hederu
+
+	// GET /second_page.php HTTP/1.1
+	// Host: www.site.com
+	// Cookie: admin_id=502
+	// Accept: */*
+
+	// Ne mozemo da postavimo ili pokupimo cookie ako ne naztaje poziv ili odgovor na poziv jer se nalaze u hederima tih poziva i odgovora!!!
+
+	$_COOKIE["nesto"];
+
+	// SETOVANJE COOKIE-JA
+
+	$name = "test";
+	$value = 45;
+	$expire = time() + (60*60*24*7) // nedelju dana od danas
+	setcookie($name, $value, $expire);
+
+	// ZAPAMTITI: setovanje cookie-ja se obavlja pre bilo kakvog ispisa HTML-a (kao i hederi) osim ukoliko nije ukljucen output buffering!!!!
+
+	// CITANJE VREDNOSTI COOKIE-JA
+
+	$_COOKIE["test"] // 45
+
+	// BITNO: kad promenimo cookie, on se nece omah po sledecem pozivu stranice pojaviti, tad ga mi saljemo, a ona vrednost koja je tu, je stari cookie, tek po drugom pozivu stranice, cookie ce se promeniti
+
+	// BRISANJE VREDNOSTI COOKIE-JA
+
+	// ne radi se sa unset($_COOKIE["nesto"]); zato sto je to stara vrednost, mi moramo da se obradimo browseru
+	// pravi nacin:
+	setcookie($name);						// nije intuitivno
+	setcookie($name, null);					// dobar nacin
+	setcookie($name, $value, time() - 3600);// dobar nacin, postavimo ga u proslost, najbolje koristimo 2 i 3 skupa
+
+	setcookie($name, null, time() - 3600);	// najbolji nacin
+
+	// SESIJE
+
+	// sesije se oslanjaju na cookie-je da rade svoj posao
+	// sesija je fajl koji se skladisti NA WEB SERVERU!
+	// onda posaljemo cookie korisniku koji sadrzi referencu na sesijin fajl i onda mozemo da vidimo taj fajl i da povucemo podatke koji nam trebaju
+	// dakle, najbitnija stvar je sto se SESIJA CUVA NA SERVERSKOJ STRANI
+
+	// prednosti:
+	// 	- sesije su vece od cookie-ja (cookie oko 4000 slova)
+	// 	- mozemo da biramo sta uzimamo, a ne ceo cookie (manja velicina zahteva)
+	// 	- sakriva vrednosti podataka
+	// 	- sigurnije, manje hakabilno
+
+	// mane:
+	// 	- sporiji pristup (uzmeno vrednost sesije, nadjemo fajl, pa citamo podatke), nije mnogo bitno
+	// 	- isticu cim se zatvori browser (tako su napravljene, takve i treba da budu)
+	// 	- fajlovi sesije se nagomilavaju
+
+	$_SESSION[""];
+
+	session_start(); // kaze php-u da nadje cookie sesije, nadje fajl sesije, otvori ga i napuni superglobalnu varijablu, ili ako nema fajla, da ga napravi za dalje koriscenje
+
+	// naravno, mora pre svakog HTML-a!!!
+
+	$_SESSION['ime'] = "Mica";
+	$ime = $_SESSION['ime'];
+	echo $ime; // odmah ispisuje ime, drugacije od cookie-ja, nema cekanja, jer smo otvorili session fajl i samo upisujemo i citamo iz njega
+
+	// sesije se koriste mnogo cesce od cookie-ja
+
+	// MYSQL
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
