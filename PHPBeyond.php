@@ -315,9 +315,96 @@
 
 	// sesije se koriste mnogo cesce od cookie-ja
 
-	// MYSQL
+	// MYSQL BAZE PODATAKA
 
+	// pisanje i citanje podataka
+	// skladistenje vise podataka
+	// brzi pristup podacima
+	// bolje organizovani podaci
+	// lakse upravljanje podacima
+	// povezivanje podataka sa drugim podacima (relacione baze podataka)
+
+	MYSQL:
+
+	// dzabe
+	// lako se koristi
+	// popularan
+	// dobar uvod u ostale baze podataka
+
+	// Baza
+
+	// baza predstavlja set tabela
+	// jedna aplikacija, jedan projekat
+	// permisije o pristupu se podesavaju na nivou baze
+
+	// Tabela
+
+	// set kolona i redova
+	// predstavlja pojedinacan koncept (imenicu)
+	// primeri: products, customers, orders (uvek mnozina, jer predstavljaju skup podataka)
+	// imace odnose jedne izmedju drugih
+
+	// Kolona
 	
+	// set podataka jednog jednostavnog tipa
+	// npr: first_name, email, password
+	// kolone imaju tip: int, string...
+
+	// Red
+
+	// jedno pojavljivanje grupe podataka
+	// npr: "Micagica", "mica@mica.com", "sifrasifra"
+
+	// Polje
+
+	// presek kolone i reda, npr first_name: "Micagica"
+
+	// Index
+
+	// struktura podatka u tabeli koja ubrzava pretrazivanje
+	// kao indeksi na kraju udzbenika (kazu na kojoj strani je sta)
+
+	// Strani kljuc
+
+	// kolona cije vrednosti odgovaraju vrednostima redova iz neke druge tabele
+	// osnova relacionih baza podataka
+
+	// CRUD
+
+	- Create
+	- Read
+	- Update
+	- Delete
+
+	// KREIRANJE BAZE IZ TERMINALA
+
+	// mysql --version (dobijemo verziju)
+
+	// mysql -u root -p (logovanje u mysql, posle ovoga trazi sifru)
+	// mysql -u widget_corp_user - widget_corp (logovanje na odredjenu baze)
+
+	// kad se ulogujemo, sve komande kucamo sa ";" na kraju
+
+	// neke komande:
+
+	// SHOW DATABASES;
+	// CREATE DATABASE ime_baze;
+	// USE ime_baze;
+	// DROP DATABASE ime_baze;
+	// GRANT ALL PRIVILEGES ON ime_baze.* TO 'ime_usera'@'localhost' IDENTIFIED BY 'sifra' // dodamo usera na bazu
+	// SHOW GRANTS FOR 'ime_usera'@'localhost' // pokazemo za koje baze user ima privilegije 
+
+	// KREIRANJE TABELA
+
+
+
+
+
+
+
+
+
+
 
 
 
