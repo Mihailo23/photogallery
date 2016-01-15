@@ -11,7 +11,7 @@
 	// empty: "", null, 0, 0,0, "0", false, array()
 	// empty: "", null, 0, 0,0, "0", false, array()
 
-	// KASTOVANJE
+	KASTOVANJE
 
 	// dva nacina
 	settype(var, type); // menja tip varijable odmah
@@ -39,7 +39,7 @@
 
 	break(2); // ima isto opciju kao i continue
 
-	// POINTERI
+	POINTERI
 
 	$ages = array(); // neki niz
 
@@ -61,7 +61,7 @@
 
 	list($zbir, $razlika) = saberi_oduzmi(20, 10); // ovako smestimo te dve vrednosti koje ce nam napuniti niz koji se vraca u listu, i onda mozemo da ih prikazemo 
 
-	// DEBAGOVANJE
+	DEBAGOVANJE
 
 	// korisna funkcija koju upisujemo unutar neke funkcije
 
@@ -75,7 +75,7 @@
 	//Forms 			POST request
 	//Cookies			COOKIE
 
-	// GET
+	GET
 
 	// super-globalna varijabla u kojoj se cuvaju podaci koje prosledimo preko url-a. Oni se smestaju u asocijativni niz iz kog mozemo da im pristupimo
 	// npr. google.com/search=1&page=2
@@ -106,7 +106,7 @@
 
 	// rawurlencode je generalno kompatibilniji !!!
 
-	// KODIRANJE HTML-a
+	KODIRANJE HTML-a
 
 	// rezervisani karakteri < > & "
 
@@ -117,7 +117,7 @@
 
 	// kad include-ujemo fajl, bitmoje da i on ima otvoren php tag
 
-	// HEDERI
+	HEDERI
 
 	// sluze za redirekcije
 
@@ -125,7 +125,7 @@
 
 	// JAKO BITNO: oni se pojavljuju pre svog ostalog sadrzaja stranice !!!
 
-	// REDIREKCIJE
+	REDIREKCIJE
 
 	// jedan tip redirekcije je 302 redirekcija
 
@@ -135,7 +135,7 @@
 	header("Location: login.php"); // mora tacno ovako da izgleda Location: lokacija
 
 
-	// OUTPUT BUFFERING
+	OUTPUT BUFFERING
 
 	// kao slavina (php kod) koja puni casu (web server) HTML-om, kad upadne prva kap, dobijamo hedere, kad se casa napuni server salje podatke browseru
 	// output buffer je kao posuda za merenje koja stalno salje istu "kolicinu" koda u casu, tako mozemo da editujemo hedere u toku "presipanja"
@@ -144,7 +144,7 @@
 	ob_start(); // pocetak (mora pre bilo kog sadrzaja, kao hederi)
 	ob_end_flush(); // kraj
 
-	// FORME!!!!
+	FORME!!!!
 
 	// POST zahtev
 	// kad submit-ujemo formu, ona moze da vodi na istu stranu ili na neku drugu, podaci iz forme se smestaju u $_POST kao acosijativni niz, koji ima key ono sto je nama name inputa, a value je vrednost tog polja.
@@ -159,12 +159,13 @@
 		// zbog ovoga submit input mora da ima name="submit"
 	}
 
-	// FORMA I PROCESUIRANJE NA ISTOJ STRANI
+	FORMA I PROCESUIRANJE NA ISTOJ STRANI
 
 	// dobro je ako imamo sve na istoj strani, i html i procesuiranje
 	// lako mozemo da opet prikazemo formu sa podacima koje smo uneli kako bi ih ispravili ako ima gresaka
 
-	// VALIDACIJA FORME
+	VALIDACIJA FORME
+	
 	// postoje razne validacije i jako su bitne
 		// - validacija prisutnosti (da li je polje popunjeno)
 		// - validacija duzine (max i min)
@@ -240,7 +241,7 @@
 
 	// treba je da napravimo validacije koje nama odgovaraju, poenta je da shvatimo kako stvari teku: korisnik unese podatke, mi ih malo ocistimo, odradimo validacije, ako prodju radimo jednu radnju, ako ne, radimo neku drugu
 
-	// COOKIES
+	COOKIES
 
 	// Cookies su mali delovi podataka koje web server trazi od naseg browsera da ih sacuva, bitni su jer daju web developerima mogucnost da sacuvaju "stanje" korisnika, da zapamte ko je i sta je radio. Bez kukija web serveri ne mogu da prepoznaju kad vise poziva dolazi od istog korisnika. Bitno je da se cuvaju podaci iz BROWSERA, jer je tako najbolje, bolje nego IP (vise korisnika moze da deli istu IP adresu), ili isti korisnik moze da promeni IP ardesu (lik koji putuje i koristi mobilni)
 	// Cookie se salje prilikom odgovora web server na zahtev korisnika kao jedan red u hederima
@@ -260,7 +261,7 @@
 
 	$_COOKIE["nesto"];
 
-	// SETOVANJE COOKIE-JA
+	SETOVANJE COOKIE-JA
 
 	$name = "test";
 	$value = 45;
@@ -269,13 +270,13 @@
 
 	// ZAPAMTITI: setovanje cookie-ja se obavlja pre bilo kakvog ispisa HTML-a (kao i hederi) osim ukoliko nije ukljucen output buffering!!!!
 
-	// CITANJE VREDNOSTI COOKIE-JA
+	CITANJE VREDNOSTI COOKIE-JA
 
 	$_COOKIE["test"] // 45
 
 	// BITNO: kad promenimo cookie, on se nece omah po sledecem pozivu stranice pojaviti, tad ga mi saljemo, a ona vrednost koja je tu, je stari cookie, tek po drugom pozivu stranice, cookie ce se promeniti
 
-	// BRISANJE VREDNOSTI COOKIE-JA
+	BRISANJE VREDNOSTI COOKIE-JA
 
 	// ne radi se sa unset($_COOKIE["nesto"]); zato sto je to stara vrednost, mi moramo da se obradimo browseru
 	// pravi nacin:
@@ -285,7 +286,7 @@
 
 	setcookie($name, null, time() - 3600);	// najbolji nacin
 
-	// SESIJE
+	SESIJE
 
 	// sesije se oslanjaju na cookie-je da rade svoj posao
 	// sesija je fajl koji se skladisti NA WEB SERVERU!
@@ -315,7 +316,7 @@
 
 	// sesije se koriste mnogo cesce od cookie-ja
 
-	// MYSQL BAZE PODATAKA
+	MYSQL BAZE PODATAKA
 
 	// pisanje i citanje podataka
 	// skladistenje vise podataka
@@ -369,14 +370,14 @@
 	// kolona cije vrednosti odgovaraju vrednostima redova iz neke druge tabele
 	// osnova relacionih baza podataka
 
-	// CRUD
+	CRUD
 
 	- Create
 	- Read
 	- Update
 	- Delete
 
-	// KREIRANJE BAZE IZ TERMINALA
+	KREIRANJE BAZE IZ TERMINALA
 
 	// mysql --version (dobijemo verziju)
 
@@ -394,21 +395,49 @@
 	// GRANT ALL PRIVILEGES ON ime_baze.* TO 'ime_usera'@'localhost' IDENTIFIED BY 'sifra' // dodamo usera na bazu
 	// SHOW GRANTS FOR 'ime_usera'@'localhost' // pokazemo za koje baze user ima privilegije 
 
-	// KREIRANJE TABELA
+	KREIRANJE TABELA
 
+	// CREATE TABLE table_name (
+	// 	column_name1 definition,
+	// 	column_name2 definition,
+	// 	column_name3 definition,
+	// 	options
+	// );
 
+	// SHOW COLUMNS FROM table_name;
+	// DROP TABLE table_name;
 
+	Create Read Update Delete - CRUD
 
+	// SQL SELECT (read)
 
+	// SELECT * 
+	// FROM table 
+	// WHERE column1 = 'some_text' // svuda spaceovi na kraju reda da bi mysql prepoznao sintaksu
+	// ORDER BY column1 ACS;
 
+	// SQL INSERT (create)
 
+	// INSERT INTO table (column1, column2) 
+	// VALUES (val1, val2);
 
+	// SQL UPDATE (update)
 
+	// UPDATE table 
+	// SET column1 = 'neki_text'
+	// WHERE id = 1; // koji id menjamo, ako ne stavimo, promenice sve
 
+	// SQL DELETE (delete)
+	// DELETE FROM table
+	// WHERE id = 1;
 
+	RELACIONE BAZE PODATAKA
 
+	// 1 prema vise, 1 prema 1, vise prema vise...
+	// to se radi preko spoljnih kljuceva (ovi referenciraju glavni kljuc druge tabele, tako da sta god da se tamo promeni, menja se i ovde)
+	// sve poznato i jasno
 
-
+	// INDEX se koristi za brzo pretrazivanje, to stavimo na spoljni kljuc
 
 
 
