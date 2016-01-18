@@ -437,11 +437,20 @@
 	// to se radi preko spoljnih kljuceva (ovi referenciraju glavni kljuc druge tabele, tako da sta god da se tamo promeni, menja se i ovde)
 	// sve poznato i jasno
 
-	// INDEX se koristi za brzo pretrazivanje, to stavimo na spoljni kljuc
+	// INDEX se koristi za brzo pretrazivanje, to stavimo na spoljni kljuc i onda mozemo da pretrazujemo vrednosti u jednoj tabeli koje se odnose na kolonu u drugoj tabeli
 
+	API BAZE PODATAKA - povezivanje sa bazom podataka
 
+	mysql // osnovni API
+	myslqi // poboljsani mysql
+	PDO // PHP data objects
 
+	// jako su slicni i lako se prelazi s jednog na drugi
 
+	http://i.imgur.com/h160ZvF.png
+
+	// PDO radi sa bilo kakvom bazom podataka, ostale dve su samo sa mysql
+	// mysql ne radi sa mysql-om, moramo da imamo mysqli
 
 
 
