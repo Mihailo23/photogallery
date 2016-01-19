@@ -452,9 +452,23 @@
 	// PDO radi sa bilo kakvom bazom podataka, ostale dve su samo sa mysql
 	// mysql ne radi sa mysql-om, moramo da imamo mysqli
 
+	http://php.net/manual/en/mysqlinfo.api.choosing.php
 
 
+	POVEZIVANJE MYSQL-A SA PHP-OM
 
+	// 1. NAPRAVIMO KONEKCIJU SA BAZOM PODATAKA
+	// 2. IZVRSAVAMO QUERY-JE
+	// 3. KORISTIMO PODATKE KOJE DOBIJEMO (AKO IH IMA)
+	// 4. "PUSTAMO" VRACENE PODATKE (OSLOBADJAMO MEMORIJU KOJU SMO KORISTILI ZA QUERY-JE)
+	// 5. ZATVARAMO KONEKCIJU
+
+	// prvi i peti korak se desavaju samo jednom u php skripti, ostali mogu da se ponove mnogo puta dok imamo otvorenu konekciju
+
+	mysqli_connect();
+	mysqli_connect_errno();
+	mysqli_connect_error();
+	mysqli_close();
 
 
 	
